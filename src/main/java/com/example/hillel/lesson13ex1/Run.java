@@ -1,9 +1,11 @@
 package com.example.hillel.lesson13ex1;
 
-import java.util.LinkedList;
+import org.testng.annotations.Test;
+
 import java.util.Scanner;
 
 public class Run {
+
 
   public static void main(String[] args) {
     BookWarehouse bookWarehouse = new BookWarehouse();
@@ -20,15 +22,10 @@ public class Run {
     // Виводимо наявні книжки
     bookWarehouse.displayBooks();
 
-    // Створюємо об'єкт SearchBook та Scanner
-    SearchBook searchBook = new SearchBook();
-    Scanner scanner = new Scanner(System.in);
-
     // Збільшуємо ціну книги "Kobzar" на 10
-    UpdPrise updPrise = new UpdPrise(new LinkedList<>(bookWarehouse.getBookOperations()));
-    updPrise.increasePriceForKobzar(10);
+    bookWarehouse.increasePriceForBook(Books1, 10);
 
-     // Отримуємо нову ціну книги "Kobzar"
+    // Отримуємо нову ціну книги "Kobzar"
     double newPrice = Books1.getPrise(); // Через об'єкт Books1, який представляє книгу "Kobzar"
 
     // Виводимо нову ціну книги "Kobzar"
@@ -36,21 +33,19 @@ public class Run {
 
     // Вводимо у пошук назву книги, поки не введено "stop"
     String input;
+    Scanner scanner = new Scanner(System.in);
     do {
       System.out.println("Enter book's name (type 'stop' to finish)");
       input = scanner.nextLine();
       if (!input.equals("stop")) {
-        searchBook.addBook(input);
-        if (bookWarehouse.containsBook(input)) {
+        if (bookWarehouse.searchBook(input)) {
           System.out.println("Book '" + input + "' is in the list.");
         } else {
           System.out.println("Book '" + input + "' is not in the list.");
         }
       }
     } while (!input.equals("stop"));
-
-
-   }
+  }
 }
 
 

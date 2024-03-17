@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookWarehouse {
-  List<Books> bookOperations;
+  private List<Books> bookOperations;
 
-  public BookWarehouse()
-  {
+  public BookWarehouse() {
     this.bookOperations = new ArrayList<>();
   }
 
@@ -28,12 +27,33 @@ public class BookWarehouse {
     return false;
   }
 
-  // метод для виводу книжок
+  // Метод для збільшення ціни книги
+  public void increasePriceForBook(Books book, double amount) {
+    for (Books b : bookOperations) {
+      if (b.equals(book)) {
+        b.setPrise(b.getPrise() + amount);
+        return;
+      }
+    }
+    System.out.println("Book '" + book.getBookName() + "' not found in the list.");
+  }
+
+  // Метод для пошуку книги за назвою
+  public boolean searchBook(String bookName) {
+    for (Books book : bookOperations) {
+      if (book.getBookName().equals(bookName)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // Метод для виведення всіх книг на складі
   public void displayBooks() {
     for (Books book : bookOperations) {
       System.out.println(book);
     }
-
   }
+
 }
 

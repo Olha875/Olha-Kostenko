@@ -8,7 +8,6 @@ public class Pass {
   public Pass(String password) {
     this.password = password;
   }
-
   public String validatePassword() throws WeakPasswordException {
 
     String validation = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]+$";
