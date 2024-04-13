@@ -16,8 +16,9 @@ ext {
     junitVersion = '5.8.1'
 }
 
-sourceCompatibility = '13'
-targetCompatibility = '13'
+// Set Java version to 21
+sourceCompatibility = '21'
+targetCompatibility = '21'
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -39,7 +40,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 
-    // Додавання залежності
+    // Add dependencies
     implementation 'org.seleniumhq.selenium:selenium-java:4.18.1'
 }
 
