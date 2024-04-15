@@ -44,6 +44,27 @@ dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:4.18.1'
 }
 
+// Define custom source sets
+sourceSets {
+    // Main source set
+    main {
+        java {
+            // Add main Java source files directory
+            srcDirs 'src/main/java/homework13'
+        }
+    }
+
+    // Test source set
+    test {
+        java {
+            // Add test Java source files directory
+            srcDirs 'src/test/java/homework13'
+            // Include specific Java files for testing
+            include '**/*.java'
+        }
+    }
+}
+
 test {
     useJUnitPlatform()
 }
