@@ -7,9 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import java.time.Duration;
 
 
 public class CoverFrom {
@@ -31,7 +28,7 @@ public class CoverFrom {
       WebElement btnAddFile = driver.findElement(By.id("uploadPicture"));
       btnAddFile.sendKeys("C:\\Users\\user\\IdeaProjects\\hillel\\src\\main\\java\\com\\example\\hillel\\lesson21\\testFile");
 
-      WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4)); //  WebDriverWait
+      //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4)); //  WebDriverWait
 
       //  Поля "State" and "Сity"
       WebElement dropdown = driver.findElement(By.xpath("//*[@class=' css-1wy0on6']"));
@@ -39,13 +36,13 @@ public class CoverFrom {
       dropdown.click();
       WebElement dropdownValue = driver.findElement(By.xpath("//*[contains(text(), 'NCR')]"));
       dropdownValue.click();
-      wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Select City')]"))); // додано очікування
+      //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Select City')]"))); // додано очікування
 
       WebElement dropdown2 = driver.findElement(By.xpath("//*[contains(text(),'Select City')]"));
       dropdown2.click();
       WebElement dropdownValue2 = driver.findElement(By.xpath("//*[contains(text(), 'Delhi')]"));
       dropdownValue2.click();
-      wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("dateOfBirthInput"))); // додано очікування
+     // wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("dateOfBirthInput"))); // додано очікування
 
       // Форма "Календар"
       WebElement dateOfBirthInput = driver.findElement(By.id("dateOfBirthInput"));
@@ -67,7 +64,7 @@ public class CoverFrom {
       WebElement subjectInput = driver.findElement(By.id("subjectsInput"));
       ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", subjectInput);
       subjectInput.sendKeys("M");
-      wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-2-option-0"))); // додано очікування
+     // wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-2-option-0"))); // додано очікування
       WebElement mathsOption = driver.findElement(By.id("react-select-2-option-0"));
       ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", mathsOption);
       mathsOption.click();
@@ -82,17 +79,17 @@ public class CoverFrom {
       WebElement pageRadioButton = driver.findElement(By.xpath("//*[@for='gender-radio-2']/parent::*"));
 
       inputUserName.sendKeys("Ann");
-      wait.until(ExpectedConditions.elementToBeClickable(inputUserLastName)); // додано очікування
+      //wait.until(ExpectedConditions.elementToBeClickable(inputUserLastName)); // додано очікування
       inputUserLastName.sendKeys("Summer");
-      wait.until(ExpectedConditions.elementToBeClickable(inputEmail)); /// додано очікування
+      //wait.until(ExpectedConditions.elementToBeClickable(inputEmail)); /// додано очікування
       inputEmail.sendKeys("ann.summer@gmail.com");
-      wait.until(ExpectedConditions.elementToBeClickable(inputMobile)); // додано очікування
+      //wait.until(ExpectedConditions.elementToBeClickable(inputMobile)); // додано очікування
       inputMobile.sendKeys("1234567890");
-      wait.until(ExpectedConditions.elementToBeClickable(inputAddress)); // додано очікування
+      //wait.until(ExpectedConditions.elementToBeClickable(inputAddress)); // додано очікування
       inputAddress.sendKeys("Address example");
-      wait.until(ExpectedConditions.elementToBeClickable(pageCheckButton)); // додано очікування
+      //wait.until(ExpectedConditions.elementToBeClickable(pageCheckButton)); // додано очікування
       pageCheckButton.click();
-      wait.until(ExpectedConditions.elementToBeClickable(pageRadioButton)); // додано очікування
+     // wait.until(ExpectedConditions.elementToBeClickable(pageRadioButton)); // додано очікування
       pageRadioButton.click();
     } finally {
       driver.quit();
